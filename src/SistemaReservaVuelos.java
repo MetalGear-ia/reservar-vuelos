@@ -13,8 +13,10 @@ public class SistemaReservaVuelos {
             System.out.print("Seleccione una opción: ");
             int opcion = sc.nextInt();
 
-            if (opcion == 1) {
-                // Mostrar asientos
+
+            switch (opcion) {
+                case 1:
+                    // Mostrar asientos
                 System.out.println("\nEstado de los asientos:");
                 for (int i = 0; i < 10; i++) {
                     for (int j = 0; j < 6; j++) {
@@ -22,8 +24,10 @@ public class SistemaReservaVuelos {
                     }
                     System.out.println();
                 }
-            } else if (opcion == 2) {
-                // Reservar asiento
+                    break;
+
+                    case 2:
+                       // Reservar asiento
                 System.out.print("Ingrese fila (1-10): ");
                 int fila = sc.nextInt() - 1;
                 System.out.print("Ingrese número de asiento (1-6): ");
@@ -39,29 +43,36 @@ public class SistemaReservaVuelos {
                 } else {
                     System.out.println("Asiento no válido");
                 }
-            } else if (opcion == 3) {
-                // Cancelar reserva
-                System.out.print("Ingrese fila (1-10): ");
-                int fila = sc.nextInt() - 1;
-                System.out.print("Ingrese número de asiento (1-6): ");
-                int asiento = sc.nextInt() - 1;
-
-                if (fila >= 0 && fila < 10 && asiento >= 0 && asiento < 6) {
-                    if (asientos[fila][asiento]) {
-                        asientos[fila][asiento] = false;
-                        System.out.println("Reserva cancelada con éxito");
-                    } else {
-                        System.out.println("El asiento no estaba reservado");
-                    }
-                } else {
-                    System.out.println("Asiento no válido");
-                }
-            } else if (opcion == 4) {
                 break;
-            } else {
-                System.out.println("Opción no válida");
-            }
+
+                case 3:
+                 // Cancelar reserva
+                 System.out.print("Ingrese fila (1-10): ");
+                 fila = sc.nextInt() - 1;
+                 System.out.print("Ingrese número de asiento (1-6): ");
+                 asiento = sc.nextInt() - 1;
+ 
+                 if (fila >= 0 && fila < 10 && asiento >= 0 && asiento < 6) {
+                     if (asientos[fila][asiento]) {
+                         asientos[fila][asiento] = false;
+                         System.out.println("Reserva cancelada con éxito");
+                     } else {
+                         System.out.println("El asiento no estaba reservado");
+                     }
+                 } else {
+                     System.out.println("Asiento no válido");
+                 }
+                 break;
+                 
+                 case 4:{
+                    System.out.println("Opción no válida");
+                    break;
+                }
+                
+           
+                    
         }
         sc.close();
     }
+}
 }
